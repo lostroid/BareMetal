@@ -1,7 +1,7 @@
 # 활동링크
-유튜브 : https://www.youtube.com/@NETNABI  
-reddit : https://www.reddit.com/r/netnabi  
-NaverCafe : https://cafe.naver.com/netnabi  
+유튜브 : https://www.youtube.com/@Loasroid  
+reddit : https://www.reddit.com/r/Lostroid  
+NaverCafe : https://www.lostroid.com  
 
 # BareMetal
 유튜브에 있는 영상들은 전부 Bare Metal 기반으로 구현되었습니다.  
