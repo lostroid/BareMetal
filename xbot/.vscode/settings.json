@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "xbot_error_type.h": "c",
+        "xbot_main_type.h": "c"
+    }
+}
