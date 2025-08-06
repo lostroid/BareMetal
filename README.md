@@ -1,6 +1,6 @@
 # 활동링크
-유튜브 : https://www.youtube.com/@Loasroid  
-reddit : https://www.reddit.com/r/Lostroid  
+유튜브 : https://www.youtube.com/@lostroid  
+reddit : https://www.reddit.com/r/LOSTROID  
 NaverCafe : https://www.lostroid.com  
 
 # BareMetal
