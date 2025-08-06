@@ -100,7 +100,7 @@ f_PbotCamera_Write_Send();
 ```c
 /******************************************************************************
 * File:    ats_schedluer.c
-* Author:  NETNABI
+* Author:  LOSTROID
 * Created: 2024-11-10
 *
 * Description:
