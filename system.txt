@@ -1,0 +1,40 @@
+
+SDK 폴더구조
+
+- [F] Base 기본관련 폴더
+-- base_main.c
+-- base_crc.c
+-- base_gpio.c
+-- base_adc.c
+-- base_dac.c
+-- base_pwm.c
+-- base_spi.c
+-- base_uart.c
+-- base_sdmmc.c
+-- base_bootloader.c: 부트로더 관련 코드
+-- base_timer.c: 시간관련 코ㄷ드 (base 와치독 DWT, SYSCUNT)
+
+- [F] Sdcard
+- [F] USB
+- [F] Memory
+- [F] Ethernet 
+- [F] Display
+- [F] Audio
+- [F] File_System --> FAT32, exFAT
+- [F] Camera
+- [F] PCIe
+- [F] Wireless -> Zigbee, Wifi, Bluetooth, Thread
+- [F] Sensor --> GPS, IMU, NTC
+
+
+- eth 이더넷관련 폴더
+-- x_eth.c
+-- x_LAN9200.c
+-- x_zigbee.c
+
+- [F] display 디스플레이 관련 폴더
+-- x_display.c
+
+- [F] sound 소리 관련 폴더
+
+- [F] mic 마이크 관련 폴더
