@@ -14,27 +14,17 @@ SDK 폴더구조
 -- base_bootloader.c: 부트로더 관련 코드
 -- base_timer.c: 시간관련 코ㄷ드 (base 와치독 DWT, SYSCUNT)
 
-- [F] Sdcard
-- [F] USB
-- [F] Memory
-- [F] Ethernet 
-- [F] Display
-- [F] Audio
+- [F] USB --> CDC,
+- [F] Memory --> SPI_ROM
+- [F] Ethernet --> LAN7200
+- [F] Display --> ST7764
+- [F] Audio --> Sound, Mems
 - [F] File_System --> FAT32, exFAT
-- [F] Camera
-- [F] PCIe
-- [F] Wireless -> Zigbee, Wifi, Bluetooth, Thread
+- [F] Camera --> OV7670, OV2624
+- [F] Disk --> SSD, EMMC, SDCAR 
+- [F] Wireless --> Zigbee, Wifi, Bluetooth, Thread
 - [F] Sensor --> GPS, IMU, NTC
 
 
-- eth 이더넷관련 폴더
--- x_eth.c
--- x_LAN9200.c
--- x_zigbee.c
 
-- [F] display 디스플레이 관련 폴더
--- x_display.c
 
-- [F] sound 소리 관련 폴더
-
-- [F] mic 마이크 관련 폴더
