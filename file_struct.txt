@@ -15,11 +15,12 @@ SDK 폴더구조
 -- base_timer.c: 시간관련 코ㄷ드 (base 와치독 DWT, SYSCUNT)
 
 - [F] USB --> CDC,
-- [F] Memory --> SPI_ROM
+- [F] Memory --> SPI_ROM, flash
 - [F] Ethernet --> LAN7200
 - [F] Display --> ST7764
 - [F] Audio --> Sound, Mems
 - [F] File_System --> FAT32, exFAT
+- [F] File_Format --> bmp. png, doc
 - [F] Camera --> OV7670, OV2624
 - [F] Disk --> SSD, EMMC, SDCAR 
 - [F] Wireless --> Zigbee, Wifi, Bluetooth, Thread
