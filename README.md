@@ -18,8 +18,8 @@ PS 케이스(PS_Case)
 test_type.h  (순수 Define 또는 타입만 선언)
 ```c
 
-#ifndef TEST_TYPE_H_
-#define TEST_TYPE_H_
+#ifndef H)TEST_TYPE_H
+#define H_TEST_TYPE_H
 
 #define d_TEST_SETUP   0
 typedef struct
