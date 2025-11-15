@@ -11,7 +11,7 @@ NaverCafe : https://www.lostroid.com
 # 코딩 문법  
 GIT 의 모든 코드는 아래와 같은 규칙으로 작성이 됩니다.    
   
-1. 코딩 스타일: 파스칼케이스 (Pascal Case) + 스네이크 케이스(snake_case) 혼합 사용 Pascal_Snake_case
+1. 코딩 스타일: 스네이크 케이스(snake_case) + 혼합 사용 Pascal_Snake_Case
 2. 코딩 인코딩: UTF-8  
 3. 기본 파일종류: 총 3가지 구성으로 됩니다.  
    xxx_type.h : 타입 enum, typedef, define 다른 타입과 종속 되지 않는 내용 선언  
@@ -91,8 +91,8 @@ test_type.h  (순수 Define 또는 타입만 선언)
 #define d_TEST_SETUP   0
 typedef struct //이름은 생략
 {
-  uint32 v_Data1;
-  sint32 v_Data2;
+  uint32 v_data1;
+  sint32 v_data2;
 }ts_Test_Base;
 
 typedef  enum
@@ -111,16 +111,16 @@ typedef struct
 ```
 test.h ( 다른소스 타입을 사용시에 선언)
 ```c
-#ifndef TSET_H_
-#define TEST_H_
+#ifndef H_TSET_H
+#define H_TEST_H
 
 #include "camera_type.h" /// 또는 Camera.h 함수 사용시 
 #include "test_type.h"
 
 typedef struct
 {
-  ts_Camera_base s_Camera_base;
-  ts_Test_bsase s_Test_base;
+  ts_Camera_base s_camera_base;
+  ts_Test_bsase s_test_base;
 }ts_Test_Moulde;
 
 #endif
@@ -130,19 +130,19 @@ test_type.c
 ```c
 #include "test.h"
 
-uint32 xv_Test_Flag;          /// extren 변수
-uint32 xa_Test_Array[29];     /// extren 배열 변수
+uint32 xv_test_flag;          /// extren 변수
+uint32 xa_test_array[29];     /// extren 배열 변수
 
-static uint32 gv_Test_Timer;  /// 소스파일 범위 변수
-static uint32 gv_Test_State;  /// 소스파일 범위 변수
+static uint32 gv_test_timer;  /// 소스파일 범위 변수
+static uint32 gv_test_state;  /// 소스파일 범위 변수
 
-static sint32* gp_Test_Point;         /// 소스파일 범위 포인터 변수
-static sint32* gpa_Test_Array[20];    /// 소스파일 범위 포인터 배열 변수
+static sint32* gp_test_point;         /// 소스파일 범위 포인터 변수
+static sint32* gpa_test_array[20];    /// 소스파일 범위 포인터 배열 변수
 
 void f_Test_Int(void)
 {
-  static uint32 lv_Time;  /// 함수 내부는 파일명 접두사를 넣을 필요 없음.
-  uint32 v_Buff;
+  static uint32 lv_time;  /// 함수 내부는 파일명 접두사를 넣을 필요 없음.
+  uint32 v_buff;
 {
 void f_Test_Module(void)
 {
@@ -155,7 +155,7 @@ void f_Test_Module(void)
 2. #define 접두어 d소문자 d_XXXXX 나머진 대문자로 사용  
 3. const 상수 접두어 c소문자 c_XXXXX  
 4. v_value 변수는 상황에 맞게 접두어 사용 소문자로만 사용  
-5. typdef 및 함수는 f_Aaaa_Aaaa or f_AaaaAaaㅁ 형태로 Pascal_Snake_Case 사용
+5. typdef struct 및 함수는 f_Aaaa_Aaaa or f_AaaaAaaㅁ 형태로 Pascal_Snake_Case 사용
 6. 
 
 xbot_camera.c 인 경우 소스코드 이름을 내부 접두어에 포함 작성합니다.  
