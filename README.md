@@ -139,12 +139,12 @@ static uint32 gv_test_state;  /// 소스파일 범위 변수
 static sint32* gp_test_point;         /// 소스파일 범위 포인터 변수
 static sint32* gpa_test_array[20];    /// 소스파일 범위 포인터 배열 변수
 
-void f_Test_Int(void)
+void f_test_int(void)
 {
   static uint32 lv_time;  /// 함수 내부는 파일명 접두사를 넣을 필요 없음.
   uint32 v_buff;
 {
-void f_Test_Module(void)
+void f_test_module(void)
 {
 }
 
@@ -195,10 +195,10 @@ f_PBotApp_Module(void);  //-
   - JOB_CAMERA_BlackWhite : 흑백모드 테이블  
     ```c  
     void (*gap_JOB_Camera_Color[]) (void) = {  
-        f_Task_Camera_Enable,  
-        f_Task_Camera_Disable,  
-        f_Task_Camera_Init,  
-        f_Task_Camera_Setup  
+        f_task_camera_enable,  
+        f_task_camera_disable,  
+        f_task_camera_init,  
+        f_task_camera_setup  
     }
     ```    
 #TASK  
@@ -216,10 +216,10 @@ f_PBotApp_Module(void);  //-
   Switch(step)  
   {  
       case 0:  
-          f_Camera_Work_EN_L();   
+          f_camera_work_en_l();   
           break;   
       case 1:  
-          f_Camera_Work_EN_H();  
+          f_camera_work_en_h();  
           break;  
       default:   
           break;   
