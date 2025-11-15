@@ -11,7 +11,7 @@ NaverCafe : https://www.lostroid.com
 # 코딩 문법  
 GIT 의 모든 코드는 아래와 같은 규칙으로 작성이 됩니다.    
   
-1. 코딩 스타일: 파스칼케이스 (Pascal Case) + 스네이크 케이스(snake_case) 혼합 사용  
+1. 코딩 스타일: 파스칼케이스 (Pascal Case) + 스네이크 케이스(snake_case) 혼합 사용 Pascal_Snake_case
 2. 코딩 인코딩: UTF-8  
 3. 기본 파일종류: 총 3가지 구성으로 됩니다.  
    xxx_type.h : 타입 enum, typedef, define 다른 타입과 종속 되지 않는 내용 선언  
@@ -150,15 +150,23 @@ void f_Test_Module(void)
 
 ```
 
-nn_camera.c 인 경우 코드 내부 말머리는 다음과 같이 작성합니다.  
-f_Pbot_Camera_xxx;  
-v_Pbot_Camera_xxx;  
+코딩 문법룰  
+1. #ifdef 같은 헤더 중복은 H_XXXXX_H  앞 뒤로 H 포함 하여 대문자로 작성합니다.  
+2. #define 접두어 d소문자 d_XXXXX 나머진 대문자로 사용  
+3. const 상수 접두어 c소문자 c_XXXXX  
+4. v_value 변수는 상황에 맞게 접두어 사용 소문자로만 사용  
+5. typdef 및 함수는 f_Aaaa_Aaaa or f_AaaaAaaㅁ 형태로 Pascal_Snake_Case 사용
+6. 
+
+xbot_camera.c 인 경우 소스코드 이름을 내부 접두어에 포함 작성합니다.  
+이는 서로다른 소스파일의 중복 함수를 피하기 위한 조치입니다.  
+f_Xbot_Camera_xxx;   
+v_xbot_camera_xxx;
+static 변수 파일 이름을 포함 하지 않습니다.
 이는 함수의 소스파일 이름을 바로 파악 및 이름 충돌을 피함.  
-네이밍 방법은 f_파일이름_대분류_소분류  
-파일이름 + 대분류는 다음과 같이 _를 제거 해서 사용
-하위집단은 _로 구분.
-f_PbotCamera_Read_Send();  
-f_PbotCamera_Write_Send();  
+
+
+--- 이하 작성중---
   
 추가로 Extren은 원소스 헤더파일에서만 사용 다른 코드에서 사용 불가.  
 이는 스파게티 방지.  다른 소스코드 에서 사용 하려면 헤더파일 인클루드  
