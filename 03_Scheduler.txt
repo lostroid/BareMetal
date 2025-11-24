@@ -1,0 +1,28 @@
+Scheduler 구성
+
+Scheduler : 하나의 기능에 동작에 필요한 함수 모음.
+  - lcd_st7765_schedule_table
+    - lcd_st7765_18bit_work_table
+      - lcd_st7765_en_reset_job_table
+        - lcd_st7765_en_off_func
+        - lcd_st7765_en_on_func
+      - LCD_ST7765_18bit_set_Job
+    - Work_ST7765_16bit_Work_Table
+  - LCD_ST7861_Schedule
+
+typdef struct 
+{
+  uint32 v_size
+  uint32 (*p_list)
+} ts_Scheduler_Table
+
+typdef struct {
+  work        // 동작 테이블 항목 포인터 _work_table
+  work_size   // 테이블 총 사이즈
+  work_pos    // 현재 위치
+  job         // 동작 일 테이블 _job_table
+  job_size    // 동작 일 테이블 사이즈
+  job_pos     // JOB 함수 위치
+  job_func    // 실제 수행 포인터
+  step        // switch 위치
+}ts_Scheduler
