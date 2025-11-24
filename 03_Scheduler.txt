@@ -1,7 +1,10 @@
+Poling 방식의 구조를 규격화 하기위한 제어 모듈 설명
+RTOS 처럼 Context Switch를 통한 Task 점유을 제어가 아닌 폴링 방식의 동작 스케쥴을 제어하기 위한 구조임.
+
 Scheduler 구성
 
 Scheduler : 하나의 기능에 동작에 필요한 함수 모음.
-  - lcd_st7765_schedule_table
+  - lcd_st7765_schedule_table (동작 모드를 결정 하여 모듈 돌릴 Work Table을 선정)
     - lcd_st7765_18bit_work_table
       - lcd_st7765_en_reset_job_table
         - lcd_st7765_en_off_func
@@ -17,12 +20,16 @@ typdef struct
 } ts_Scheduler_Table
 
 typdef struct {
-  work        // 동작 테이블 항목 포인터 _work_table
-  work_size   // 테이블 총 사이즈
-  work_pos    // 현재 위치
-  job         // 동작 일 테이블 _job_table
-  job_size    // 동작 일 테이블 사이즈
-  job_pos     // JOB 함수 위치
-  job_func    // 실제 수행 포인터
-  step        // switch 위치
+  ts_Scheduler_Table work  // 동작 테이블 항목 포인터 _work_table
+  uint32 work_size         // 테이블 총 사이즈
+  uint32 work_pos          // 현재 위치
+  ts_Scheduler_Table job   // 동작 일 테이블 _job_table
+  uint32 v_job_size        // 동작 일 테이블 사이즈
+  uint32 v_job_pos         // JOB 함수 위치
+  uint32 v_job_func        // 실제 수행 포인터
+  uint32 v_step            // switch 위치
+  uint32 v_active          // 활성화 정보 0:비활성, 1:활성, 그외에 값은 Skip 단위 2면 2회 마다 동작 (부하가 많을시 감소용)
+  uint32 v_skip;           // Skip 
+  uint32 v_Priority        // 우선등급  다른 모듈에서 더많을 자원을 가져가기 위해 등급에 따른 차단 기능용.
+  uint32 v_job_time;       // 지정한 최소 동작시간을 초과시 패널티 작용 하기 위한 값 us, 지연시 active 제어를 통한 실행 횟수 제어.
 }ts_Scheduler
