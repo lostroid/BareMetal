@@ -32,5 +32,7 @@ typdef struct {
   uint32 v_skip;           // Skip 
   uint32 v_Priority;       // 우선등급  다른 모듈에서 더많을 자원을 가져가기 위해 등급에 따른 차단 기능용.
   uint32 v_job_time;       // 지정한 최소 동작시간을 초과시 패널티 작용 하기 위한 값 us, 지연시 active 제어를 통한 실행 횟수 제어.
+  uint32 v_job_time_avg;   // 10번 평균
+  uint32 v_job_time_max;   // 최대값
   uint32 v_job_next_delay; // 명령어 전송후 다은 Step 까지 까지 대기 시간        
 }ts_Scheduler
