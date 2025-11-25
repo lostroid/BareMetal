@@ -13,31 +13,39 @@ Scheduler : 하나의 기능에 동작에 필요한 함수 모음.
     - Work_ST7765_16bit_Work_Table
   - LCD_ST7861_Schedule
 
+typedef enum{
+    m_SCH_ERROR_MSG_NO_ERROR,
+    m_SCH_ERROR_MSG_TIME_OUT,
+    m_SCH_ERROR_MSG_CRC,
+    m_SCH_ERROR_MSG_DATA
+}te_SCH_Error_Msg;
+
 typedef struct {
     uint32 v_size;
-    ts_SCH_Mode_Table *pa_table;
+    void(*pa_table)(void);
 } ts_SCH_Mode_Table;
 
 typedef struct{
     /* 제어 변수 */
-    uint32 v_active;                  // 0: Disable, 1 ~ 0xFFFFFFFF: 1은 활성  1이상 < skip count 2는 2회 마다 한번수행;
-    uint32 v_skip;                    // 부하를 줄이기 위해 SKIP 단위 설정.
-    uint32 v_priority;                // 우선 순위등급 높을수록 높음 
+    uint32 v_active;                    // 0: Disable, 1 ~ 0xFFFFFFFF: 1은 활성  1이상 < skip count 2는 2회 마다 한번수행;
+    uint32 v_skip;                      // 부하를 줄이기 위해 SKIP 단위 설정.
+    uint32 v_priority;                  // 우선 순위등급 높을수록 높음 
 
     /* 스케쥴 테이블 정보 */
-    void (*ps_sch_table)(void);       // Schedule work 리스트
-    uint32 v_sch_size;                // Schedule work 사이즈
-    uint32 v_sch_pos;                 // Schedule work 위치
+    void (*ps_sch_table)(void);         // Schedule work 리스트
+    uint32 v_sch_size;                  // Schedule work 사이즈
+    uint32 v_sch_pos;                   // Schedule work 위치
 
     /* 수행 테이블 정보*/
-    void (*pf_work_func)(void);        // Work 함수 포인터.
-    uint32 v_work_step;                // Work 함수 내부 Switch 위치 정보.
-    uint32 v_work_time;                // Work 수행 시간 (us).
-    uint32 v_work_time_avg;            // Work 수행 시간 평균 10회 (us).
-    uint32 v_work_time_max;            // Work 수행 시간 최대 (us).
-    uint32 v_work_next_delay;          // Work 다음 동작시 대기시간 (us).
-    /* Work 에러정보 */
-    uint32 v_work_error_pos;           // Work 에러위치
-    uint32 v_work_error_step;          // Work 에러 step(case) 위치.
-    te_SCH_Error_Msg e_work_error_type // Work 에러 내용
-}ts_Scheduler_ctrl;
+    void (*pf_work_func)(void);         // Work 함수 포인터.
+    uint32 v_work_step;                 // Work 함수 내부 Switch 위치 정보.
+    uint32 v_work_time;                 // Work 수행 시간 (us).
+    uint32 v_work_time_avg;             // Work 수행 시간 평균 10회 (us).
+    uint32 v_work_time_max;             // Work 수행 시간 최대 (us).
+    uint32 v_work_next_delay;           // 다음 Work 동작시 대기시간 (us).
+    
+    /* 에러 정보 */
+    uint32 v_work_error_pos;            // Work 에러위치
+    uint32 v_work_error_step;           // Work 에러 step(case) 위치.
+    te_SCH_Error_Msg e_work_error_type  // Work 에러 내용
+}ts_SCH_ctrl;
