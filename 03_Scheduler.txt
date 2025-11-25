@@ -45,7 +45,8 @@ typedef struct{
     uint32 v_work_next_delay;           // 다음 Work 동작시 대기시간 (us).
     
     /* 에러 정보 */
-    uint32 v_work_error_pos;            // Work 에러위치
-    uint32 v_work_error_step;           // Work 에러 step(case) 위치.
-    te_SCH_Error_Msg e_work_error_type  // Work 에러 내용
+    uint32 v_sch_error_pos;             // Schedule error position.
+    uint32 v_sch_error_step;            // Schedule error step(case) postion.
+    te_SCH_Error_Msg e_sch_error_type;  // Schedule error type.
+    uint32 v_sch_error_count;           // Schedule error total count.
 }ts_SCH_ctrl;
