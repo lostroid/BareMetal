@@ -13,26 +13,31 @@ Scheduler : 하나의 기능에 동작에 필요한 함수 모음.
     - Work_ST7765_16bit_Work_Table
   - LCD_ST7861_Schedule
 
-typdef struct 
-{
-  uint32 v_size
-  uint32 (*p_list)
-} ts_Scheduler_Table
+typedef struct {
+    uint32 v_size;
+    ts_SCH_Mode_Table *pa_table;
+} ts_SCH_Mode_Table;
 
-typdef struct {
-  ts_Scheduler_Table work; // 동작 테이블 항목 포인터 _work_table
-  uint32 work_size;        // 테이블 총 사이즈
-  uint32 work_pos;         // 현재 위치
-  ts_Scheduler_Table job;  // 동작 일 테이블 _job_table
-  uint32 v_job_size;       // 동작 일 테이블 사이즈
-  uint32 v_job_pos;        // JOB 함수 위치
-  uint32 v_job_func;       // 실제 수행 포인터
-  uint32 v_step;           // switch 위치
-  uint32 v_active;         // 활성화 정보 0:비활성, 1:활성, 그외에 값은 Skip 단위 2면 2회 마다 동작 (부하가 많을시 감소용)
-  uint32 v_skip;           // Skip 
-  uint32 v_Priority;       // 우선등급  다른 모듈에서 더많을 자원을 가져가기 위해 등급에 따른 차단 기능용.
-  uint32 v_job_time;       // 지정한 최소 동작시간을 초과시 패널티 작용 하기 위한 값 us, 지연시 active 제어를 통한 실행 횟수 제어.
-  uint32 v_job_time_avg;   // 10번 평균
-  uint32 v_job_time_max;   // 최대값
-  uint32 v_job_next_delay; // 명령어 전송후 다은 Step 까지 까지 대기 시간        
-}ts_Scheduler
+typedef struct{
+    /* 제어 변수 */
+    uint32 v_active;                  // 0: Disable, 1 ~ 0xFFFFFFFF: 1은 활성  1이상 < skip count 2는 2회 마다 한번수행;
+    uint32 v_skip;                    // 부하를 줄이기 위해 SKIP 단위 설정.
+    uint32 v_priority;                // 우선 순위등급 높을수록 높음 
+
+    /* 스케쥴 테이블 정보 */
+    void (*ps_sch_table)(void);       // Schedule work 리스트
+    uint32 v_sch_size;                // Schedule work 사이즈
+    uint32 v_sch_pos;                 // Schedule work 위치
+
+    /* 수행 테이블 정보*/
+    void (*pf_work_func)(void);        // Work 함수 포인터.
+    uint32 v_work_step;                // Work 함수 내부 Switch 위치 정보.
+    uint32 v_work_time;                // Work 수행 시간 (us).
+    uint32 v_work_time_avg;            // Work 수행 시간 평균 10회 (us).
+    uint32 v_work_time_max;            // Work 수행 시간 최대 (us).
+    uint32 v_work_next_delay;          // Work 다음 동작시 대기시간 (us).
+    /* Work 에러정보 */
+    uint32 v_work_error_pos;           // Work 에러위치
+    uint32 v_work_error_step;          // Work 에러 step(case) 위치.
+    te_SCH_Error_Msg e_work_error_type // Work 에러 내용
+}ts_Scheduler_ctrl;
