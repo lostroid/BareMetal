@@ -31,26 +31,32 @@ typedef struct {
 
 typedef struct{
     /* 제어 변수 */
-    uint32 v_active;                // 0: Disable, 1 ~ 0xFFFFFFFF: 1은 활성  1이상 < skip count 2는 2회 마다 한번수행;
-    uint32 v_skip;                  // 부하를 줄이기 위해 SKIP 단위 설정.
-    uint32 v_priority;              // 우선 순위등급 높을수록 높음 
+    uint32 v_active;                    // 0: Disable, 1 ~ 0xFFFFFFFF: 1은 활성  1이상 < skip count 2는 2회 마다 한번수행;
+    uint32 v_skip;                      // 부하를 줄이기 위해 SKIP 단위 설정.
+    uint32 v_priority;                  // 우선 순위등급 높을수록 높음 
 
-    /* 스케쥴 테이블 정보 */
-    void (*ps_table)(void);         // Schedule work 리스트
-    uint32 v_size;                  // Schedule work 사이즈
-    uint32 v_pos;                   // Schedule work 위치
+    /* Schedule 테이블 정보 */
+    void (**ps_wf_table)(void);         // Workflow 테이블 리스트.
+    uint32 v_wf_table_size;             // Workflow 태이블 사이즈 정보.
+    uint32 v_wf_table_pos;              // workflow 태이블 위치 정보.
+    void (*pf_wf_func)(void);           // Workflow 함수 포인터.
+    uint32 v_wf_time;                   // Workflow 수행 시간 (us).
+    uint32 v_wf_time_avg;               // Workflow 수행 시간 평균 10회 (us).
+    uint32 v_wf_time_max;               // Workflow 수행 시간 최대 (us).
+    uint32 v_wf_next_delay;             // 다음 Workflow 동작시 대기시간 (us).
 
-    /* 수행 테이블 정보*/
-    void (*pf_work_func)(void);     // Workflow 함수 포인터.
-    uint32 v_workflow_step;             // Workflow 함수 내부 Switch 위치 정보.
-    uint32 v_workflow_time;             // Workflow 수행 시간 (us).
-    uint32 v_workflow_time_avg;         // Workflow 수행 시간 평균 10회 (us).
-    uint32 v_workflow_time_max;         // Workflow 수행 시간 최대 (us).
-    uint32 v_workflow_next_delay;       // 다음 Workflow 동작시 대기시간 (us).
-    
+    /* JOB 테이블 */
+    void (**pf_job_table)(void);        // job 테이블
+    uint32 v_job_table_size;            // Job 테이블 사이즈
+    uint32 v_job_table_pos;             // Job 테이블 위치.
+    void (*pf_job_func)(void);          // job 함수
+    uint32 v_job_setp_pos;              // job 함수 내부 Switch 위치 정보.
+    uint32 v_job_next_delay;            // 다음 job 동작시 대기시간 (us).
+    uint32 v_job_timeout;               // job 타임 아웃.
+
     /* 에러 정보 */
-    uint32 v_error_pos;             // Schedule error position.
-    uint32 v_error_step;            // Schedule error step(case) postion.
-    te_SCH_Error_Code e_error_code; // Schedule error code.
-    uint32 v_error_count;           // Schedule error total count.
+    uint32 v_error_pos;                 // Schedule error position.
+    uint32 v_error_step;                // Schedule error step(case) postion.
+    te_SCH_Error_Code e_error_code;     // Schedule error code.
+    uint32 v_error_count;               // Schedule error total count.
 }ts_SCH_ctrl;
