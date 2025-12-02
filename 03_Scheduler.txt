@@ -41,12 +41,12 @@ typedef struct{
     uint32 v_pos;                   // Schedule work 위치
 
     /* 수행 테이블 정보*/
-    void (*pf_work_func)(void);     // Work 함수 포인터.
-    uint32 v_work_step;             // Work 함수 내부 Switch 위치 정보.
-    uint32 v_work_time;             // Work 수행 시간 (us).
-    uint32 v_work_time_avg;         // Work 수행 시간 평균 10회 (us).
-    uint32 v_work_time_max;         // Work 수행 시간 최대 (us).
-    uint32 v_work_next_delay;       // 다음 Work 동작시 대기시간 (us).
+    void (*pf_work_func)(void);     // Workflow 함수 포인터.
+    uint32 v_workflow_step;             // Workflow 함수 내부 Switch 위치 정보.
+    uint32 v_workflow_time;             // Workflow 수행 시간 (us).
+    uint32 v_workflow_time_avg;         // Workflow 수행 시간 평균 10회 (us).
+    uint32 v_workflow_time_max;         // Workflow 수행 시간 최대 (us).
+    uint32 v_workflow_next_delay;       // 다음 Workflow 동작시 대기시간 (us).
     
     /* 에러 정보 */
     uint32 v_error_pos;             // Schedule error position.
