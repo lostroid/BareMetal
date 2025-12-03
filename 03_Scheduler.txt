@@ -24,10 +24,6 @@ typedef enum{
     m_SCH_ERROR_CODE_WRITE_OVF
 }te_SCH_Error_Code;
 
-typedef struct {
-    uint32 v_size;
-    void(*pa_table)(void);
-} ts_SCH_Mode_Table;
 
 typedef struct{
     /* 제어 변수 */
@@ -60,3 +56,14 @@ typedef struct{
     te_SCH_Error_Code e_error_code;     // Schedule error code.
     uint32 v_error_count;               // Schedule error total count.
 }ts_SCH_ctrl;
+
+/* 스케쥴러 테이블 Main 타임 함수 */
+static void (*pf_base_main_schedule_table[d_BASE_MAIN_TABLE_SIZE])(void) = {
+    f_Base_Main_TBase_1ms,
+    f_Base_Main_TBase_10ms,
+    f_Base_Main_TBase_100ms,
+    f_Base_Main_TBase_500ms,
+    f_Base_Main_TBase_1s
+};
+/* scheduler 제어 변수)
+ts_SCH_ctrl gs_base_main_sch_ctrl;
