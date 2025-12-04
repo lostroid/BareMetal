@@ -22,7 +22,7 @@ Lostroid 에서는 다음과 같은 규칙을 가집니다.
 - [F] Audio : 사운드 및 마이크 칩 제어 관리 (Sound, Mems)
 - [F] File_system : 파일시스템 관리 (FAT32, exFAT)
 - [F] Camera : 카메라 제어 관리 (OV7670, OV2624)
-- [F] Disk : SSD, EMMC, SDCARD 제어 관리 
+- [F] Storage : SSD, EMMC, SDCARD 제어 관리 
 - [F] DBG : 디버깅 도구
 - [F] Wireless : 무선이더넷 칩 관리 (Zigbee, Wifi, Bluetooth, Thread)
 - [F] Sensor : 각종 센서 관리 (GPS, IMU, NTC)
