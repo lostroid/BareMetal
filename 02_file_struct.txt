@@ -11,8 +11,8 @@ Lostroid 에서는 다음과 같은 규칙을 가집니다.
 
 기본  SDK_XBOT 폴더 구조  
 - [F] BareMeatal : HAL 이 아닌경우 사용 실제 레지스터 집합체 (옵션)
-- [F] Base : Interface 에 관련된 버퍼 및 송 수신 관리 (SPI,UART,SDOI,ADC,DAC,TIME...)
-- [F] Cli : Command Line Interfac 기반 통신
+- [F] Base : nterface 에 관련된 버퍼 및 송 수신 관리 (SPI,UART,SDOI,ADC,DAC,TIME...)
+- [F] CLI : Command Line Interfac 기반 통신
 - [F] ScheduleManager : 각 Module 의 스케쥴 을 설정 관리 (테이블 관리)
 - [F] Bootloader : 부트로더 동작시 필요한 정보 관리
 - [F] USB : USB 관련 관리 (CDC)
