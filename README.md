@@ -8,6 +8,27 @@ NaverCafe : https://www.lostroid.com
  Bare metal 기반을 설계 하는 목적이 있습니다.  
 특정 모델 타겟을 가지고 만들기에 범용코드가 아닌 코드를 단순화 시킬 예정입니다.  
 
+# Typedef  
+자료형 타입은 다음과 같이 정의 합니다.  
+기존 uint32 같은 이름의 충돌을 방지하고자 사용됨.  
+```c
+typedef unsigned char               tu8;
+typedef unsigned short              tu16;
+typedef unsigned long               tu32;
+typedef unsigned long long          tu64;
+
+typedef signed char                 ts8;
+typedef short                       ts16;
+typedef long                        ts32;
+typedef long long                   ts64;
+
+#define d_NULL  0u
+#define d_DONE  0u
+#define d_FAIL  1u
+#define d_ON    1u 
+#define d_OFF   0u  
+#define d_ERROR 0xFFFFFFFF
+```  
 # 코딩 문법  
 GIT 의 모든 코드는 아래와 같은 규칙으로 작성이 됩니다.    
   
