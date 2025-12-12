@@ -11,6 +11,7 @@ NaverCafe : https://www.lostroid.com
 # Typedef  
 자료형 타입은 다음과 같이 정의 합니다.  
 기존 uint32 같은 이름의 충돌을 방지하고자 사용됨.  
+float,double, char 그대로 사용합니다.  
 ```c
 typedef unsigned char               tu8;
 typedef unsigned short              tu16;
