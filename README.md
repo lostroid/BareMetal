@@ -1,3 +1,8 @@
+# 본 내용은 C언어 기반 Bare Metal을 기준으로 하는 내용 입니다.
+
+코드의 중심이 되는 것은 인터페이스의 송수신 데이터 기반으로 모든게 동작이
+되기 때문에 코드의 중점은 인터페이스 기준으로 나눠서 작성이 됩니다.
+
 # 활동링크
 유튜브 : https://www.youtube.com/@lostroid  
 reddit : https://www.reddit.com/r/LOSTROID  
