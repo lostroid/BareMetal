@@ -1,19 +1,18 @@
 Update 2026.01.15
 
-구조변경중.
-Module : 기능을 이야기 합니다 (예시 LCD 모듈 -> LCD1, LCD2)
-Operation : 동작을 이야기 합니다 (예시 18Bit 모드)
-Action :
-Dual LCD 같은 동일한 칩 인경우 동일한 스케쥴을 돌기 때문에
-Work 테이블을 다른 인터페이스와 공유 할 수 있게  함수 인자를 추가하는 작업
+Module 구성은 다음과 같이 구성이 됩니다.
+Module → Sequence → Action → Step(Switch)
 
-Schadule 테이블 종류는 기본 4단계로 구성됩니다.
-[초기화구간_1][설정구간_2][Loop구간_3][에러처리구간_4]
+1. Module은 어느 장치의 동작을 관리합니다.
+ 예시) LCD, GPS, CAMERA 형태 Module.
+1.1 모듈 안에는 Mode 로 세분화 되어 Table을 관리합니다.
+ 예시) LCD 18Bit Mode, LCD 16Bit Mode
 
-Schedule 용어는 Task 등 기존 용어와 혼용 사용시 충돌을 하지 않기 위해
-Job. Action 등의 처리 단계로 표현.
+2. Sequence는 어느 동작에 필요한 수행을 합니다.
+ 예시) LCD 18Bit 통신 설정, LCD 16Bit 통신 설정, LCD 시작 위치 변경
 
-
+3. ction 보통 Sequence 에서 Switch step 으로 넘어가나 내용이 많거나 
+  step이 10이상 넘어가는 경우  Action 이라는 하위 계층으로 다시 세분화 할 수 있습니다.
 
 Poling 방식의 구조를 규격화 하기위한 제어 모듈 설명
 RTOS 처럼 Context Switch를 통한 Task 점유을 제어가 아닌 폴링 방식의 동작 스케쥴을 제어하기 위한 구조임.
