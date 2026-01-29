@@ -17,17 +17,18 @@ Module → Sequence → Action → Step(Switch)
 Poling 방식의 구조를 규격화 하기위한 제어 모듈 설명
 RTOS 처럼 Context Switch를 통한 Task 점유을 제어가 아닌 폴링 방식의 동작 스케쥴을 제어하기 위한 구조임.
 
-Scheduler 구성 요소 (필수로 존재해야 되는 기능만) 
 
-Scheduler : 하나의 기능에 동작에 필요한 함수 모음.
-  - lcd_st7765_schedule_table (동작 모드를 결정 하여 모듈 돌릴 Work Table을 선정)
-    - lcd_st7765_18bit_work_table
-      - lcd_st7765_en_reset_job_table
-        - lcd_st7765_en_off_func
-        - lcd_st7765_en_on_func
-      - LCD_ST7765_18bit_set_Job
-    - Work_ST7765_16bit_Work_Table
-  - LCD_ST7861_Schedule
+세부 Step 을 나누는 기준은 전송 시점 입니다.
+UART, SPI, DMA 등 전송을 하고 다음 STEP을 넘어갑니다.
+대기를 하지 않고 전송중에 다른 작업을 하기 위해 넘어가며
+폴링 방식으로 전송 완료 시점이 완료 될때 까지 대기
+
+기본 컨셉은 기다릴경우 다른 Module 에게 시간을 넘김니다.
+폴링 방식이기 때문에 각 Module의 사용 시간은 1ms 이내로 처리 합니다.
+
+
+
+
 
 typedef enum{
     m_SCH_ERROR_CODE_NO_ERROR,      /* 에러 없음 (No error)*/
