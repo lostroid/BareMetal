@@ -1,4 +1,6 @@
 Update 2026.01.15
+스케쥴 함수는 기본 구조체 변수를 호출 하게 변경 하였습니다.
+이유는 LCD 같은 동일 구조의 여러개 동작시 불필요한 동일 함수를 사용 하기 위해 설계변경됨.
 
 Module 구성은 다음과 같이 구성이 됩니다.
 Module → Sequence → Action → Step(Switch)
@@ -17,7 +19,6 @@ Module → Sequence → Action → Step(Switch)
 Poling 방식의 구조를 규격화 하기위한 제어 모듈 설명
 RTOS 처럼 Context Switch를 통한 Task 점유을 제어가 아닌 폴링 방식의 동작 스케쥴을 제어하기 위한 구조임.
 
-
 세부 Step 을 나누는 기준은 전송 시점 입니다.
 UART, SPI, DMA 등 전송을 하고 다음 STEP을 넘어갑니다.
 대기를 하지 않고 전송중에 다른 작업을 하기 위해 넘어가며
@@ -25,7 +26,6 @@ UART, SPI, DMA 등 전송을 하고 다음 STEP을 넘어갑니다.
 
 기본 컨셉은 기다릴경우 다른 Module 에게 시간을 넘김니다.
 폴링 방식이기 때문에 각 Module의 사용 시간은 1ms 이내로 처리 합니다.
-
 
 
 
