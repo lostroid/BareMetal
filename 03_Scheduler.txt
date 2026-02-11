@@ -1,7 +1,7 @@
 Update 2026.01.15
 스케쥴 함수는 기본 구조체 변수를 호출 하게 변경 하였습니다.
 이유는 LCD 같은 동일 구조의 여러개 동작시 불필요한 동일 함수를 사용 하기 위해 설계변경됨.
-Scheduler control modify : void f_SEQ(void) -> void f_SEQ(Struct *)
+Scheduler control modify : void f_Job(void) -> void f_Job(Struct *)
 
 Module 구성은 다음과 같이 구성이 됩니다.
 Module
