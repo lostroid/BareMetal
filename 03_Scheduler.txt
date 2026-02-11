@@ -4,18 +4,26 @@ Update 2026.01.15
 Scheduler control modify : void f_SEQ(void) -> void f_SEQ(Struct *)
 
 Module 구성은 다음과 같이 구성이 됩니다.
-Module → Sequence → Action → Step(Switch)
+Module
+  ↓
+Job → Step(case)
+  ↓
+Action (복잡한 경우)
+  ↓
+Step(case)
+
+Schedule table : Job 실행 순서를 정리한 table 을 이야기합니다.
 
 1. Module은 어느 장치의 동작을 관리합니다.
  예시) LCD, GPS, CAMERA 형태 Module.
 1.1 모듈 안에는 Mode 로 세분화 되어 Table을 관리합니다.
  예시) LCD 18Bit Mode, LCD 16Bit Mode
 
-2. Sequence는 어느 동작에 필요한 수행을 합니다.
+2. Job 어느 동작에 필요한 수행을 합니다.
  예시) LCD 18Bit 통신 설정, LCD 16Bit 통신 설정, LCD 시작 위치 변경
 
-3. ction 보통 Sequence 에서 Switch step 으로 넘어가나 내용이 많거나 
-  step이 10이상 넘어가는 경우  Action 이라는 하위 계층으로 다시 세분화 할 수 있습니다.
+3. Action 보통 Job 에서 Switch step 으로 넘어가나 내용이 많거나 
+  step이 10이상 넘어가는 경우 Action 이라는 하위 계층으로 다시 세분화 할 수 있습니다.
 
 Poling 방식의 구조를 규격화 하기위한 제어 모듈 설명
 RTOS 처럼 Context Switch를 통한 Task 점유을 제어가 아닌 폴링 방식의 동작 스케쥴을 제어하기 위한 구조임.
