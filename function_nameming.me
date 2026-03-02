@@ -1,0 +1,34 @@
+| 동사      | 용도      | 예시                    |
+| ------- | ------- | --------------------- |
+| Init    | 초기화     | `UART_Init()`         |
+| DeInit  | 초기화 해제  | `GPIO_DeInit()`       |
+| Enable  | 활성화     | `TIM_Enable()`        |
+| Disable | 비활성화    | `TIM_Disable()`       |
+| Start   | 동작 시작   | `ADC_Start()`         |
+| Stop    | 동작 중지   | `ADC_Stop()`          |
+| Set     | 값 설정    | `SysTick_SetReload()` |
+| Get     | 값 읽기    | `SysTick_GetValue()`  |
+| Is      | 상태 확인   | `RCC_IsHSEReady()`    |
+| Clear   | 플래그 클리어 | `EXTI_ClearFlag()`    |
+
+하드웨어
+| 동사         | 의미          |
+| ---------- | ----------- |
+| Configure  | 여러 설정 일괄 구성 |
+| Reset      | 리셋          |
+| Read       | 레지스터/버퍼 읽기  |
+| Write      | 레지스터/버퍼 쓰기  |
+| Update     | 값 갱신        |
+| Toggle     | 토글          |
+| Select     | 소스 선택       |
+| Register   | 콜백 등록       |
+| Unregister | 등록 해제       |
+
+인터럽트 이벤트
+| 동사        | 의미        |
+| --------- | --------- |
+| EnableIT  | 인터럽트 활성화  |
+| DisableIT | 인터럽트 비활성화 |
+| Handle    | 인터럽트 처리   |
+| Callback  | 콜백        |
+| Notify    | 이벤트 통지    |
