@@ -1,6 +1,6 @@
 Debug 코드   
 
-LoW data 는 인터페이스 UART, SPI 등 코드에서 ON OFF 함수를 만들어서
+LoW data debug는 인터페이스 UART, SPI 등 코드에서 ON OFF 함수를 만들어서
 특정 영역의 Low data 를 볼 수 있게 한다. 
 (전체 데이터 모니터링은 디버그포트 출력 속도 한계로 오버플러 발생 가능성이 높다)
 
