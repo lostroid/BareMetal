@@ -1,4 +1,21 @@
 Debug 코드   
+
+LoW data 는 인터페이스 UART, SPI 등 코드에서 ON OFF 함수를 만들어서
+특정 영역의 Low data 를 볼 수 있게 한다. 
+(전체 데이터 모니터링은 디버그포트 출력 속도 한계로 오버플러 발생 가능성이 높다)
+
+예시1.
+f_SPI1_Debug_Enable();
+f_SPI1_Debug_Disable();
+
+f_SPI2_Debug_Enable();
+f_SPI2_Debug_Disable();
+
+f_SPI1_Debug_Enable();         /* Debug 활성 */
+f_SPI1_DMA_SEND(&Buff, Size);  /* 전송 */
+f_SPI1_Debug_Disable();        /* Debug 비활성 */
+
+
 아래 내용은 수시로 변경 될 수 있음을 알립니다.
 
 다음과 같은 방식으로 동작  
