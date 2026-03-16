@@ -37,3 +37,13 @@ f_SPI1_Debug_Disable();        /* Debug 비활성 */
 디버깅 타입은 4가지로 분류
 type enum {
 }
+
+#ERROR TYPE
+/* ----------------------------------- */
+m_DBG_ERR_NONE        /* No error           "에러 없음" */
+m_DBG_ERR_HEADER      /* Header data error  "헤더 에러" */
+m_DBG_ERR_TYPE        /* Type error         "타입 에러" */
+m_DBG_ERR_COMMAND     /* Command error      "커맨드 에러" */
+m_DBG_ERR_SIZE        /* Data size error    "데이터 사이즈 에러" */
+m_DBG_ERR_CRC         /* CRC error          "CRC 에러" */
+m_DBG_ERR_VALUE       /* Value mismatch error  "값 에러" */
