@@ -39,12 +39,12 @@ SDK_XBOT 구조
 -- bm_gpio.c
 -- bm_adc.c
 -- bm_dac.c
--- bm_spi.c
 -- bm_uart.c
 -- bm_sdio.c
 
 
 - [F] Base 기본관련 폴더 (주로 데이터 전송 수신 버퍼기능구현 처리 중점)
+-- base_config.h /// 설정
 -- base_main.c
 -- base_crc.c
 -- base_gpio.c
@@ -52,6 +52,8 @@ SDK_XBOT 구조
 -- base_dac.c
 -- base_pwm.c
 -- base_spi.c
+-- base_tick.c /// 시간 측정 Tick 기반
+-- base_timer.c  /// TIMER 관련 PWM TIMER 기반 동작 
 -- base_uart.c
 -- base_sdmmc.c
 -- base_bootloader.c: 부트로더 관련 코드
