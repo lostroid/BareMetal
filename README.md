@@ -1,4 +1,4 @@
-# C언어 Bare Metal 기반 오픈소스 입니다.  
+### C언어 Bare Metal 기반 오픈소스 입니다.  
 다양한 환경에서 Bare Metal의 Polling 방식을  
 규격화 하여 만드는게 목적.  
   
@@ -9,7 +9,7 @@
 소스파일 이름을 접두사로 작성 하여   
 추후 이름 변경을 쉽게 치환 하여 작성 할수 있게 만들었습니다.  
   
-# Header File.  
+### Header File.  
 헤더파일은 소스코드의 목차 입니다.  
 전체 기능들을 볼 수 있으며   
 외부연결 extern 도 헤더파일에 포함 하는 방식을 취합니다.   
@@ -18,17 +18,17 @@ extern 을 사용 하고 싶은 해당 대상 헤더를 포함 시키시오.
 
 
 
-# 활동링크
+### 활동링크
 유튜브 : https://www.youtube.com/@lostroid  
 reddit : https://www.reddit.com/r/LOSTROID  
 NaverCafe : https://www.lostroid.com  
 
-# BareMetal  
+### BareMetal  
 범용성 제거 루틴 단순화(불필요한 #if)  하기 위해  
  Bare metal 기반을 설계 하는 목적이 있습니다.  
 특정 모델 타겟을 가지고 만들기에 범용코드가 아닌 코드를 단순화 시킬 예정입니다.  
 
-# Typedef  
+### Typedef  
 자료형 타입은 다음과 같이 정의 합니다.  
 기존 uint32 같은 이름의 충돌을 방지하고자 사용됨.  
 float,double, char 그대로 사용합니다.  
@@ -50,7 +50,7 @@ typedef long long                   ts64;
 #define d_OFF   0u  
 #define d_ERROR 0xFFFFFFFF
 ```  
-# 코딩 문법  
+### 코딩 문법  
 GIT 의 모든 코드는 아래와 같은 규칙으로 작성이 됩니다.    
   
 1. 코딩 스타일: 스네이크 케이스(snake_case) + 혼합 사용 Pascal_Snake_Case
@@ -226,7 +226,7 @@ f_PBotApp_Module(void);  //-
 
 2. STable (Scheduler Table)
 
-# 동작 단위 정의   
+### 동작 단위 정의   
 #Module    
 - Camera   
 - LCD  
