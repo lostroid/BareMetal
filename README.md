@@ -49,7 +49,7 @@ OS 기반 처럼 파일 실행 개념이 아니기에
 절대 다른 소스코드에 extern 으로 끌어 쓰지 마십시오.   
 extern 을 사용 하길 원하면 해당 대상 헤더를 포함 시키시오.  
 
-### 활동링크 (해당 영상은 전부 위와 같은 기반을 가지고 동작을 합니다)  
+### 활동링크 (해당 유튜브 영상은 전부 위와 같은 기반을 가지고 동작을 합니다)  
 유튜브 : https://www.youtube.com/@lostroid  
 reddit : https://www.reddit.com/r/LOSTROID  
 NaverCafe : https://www.lostroid.com  
