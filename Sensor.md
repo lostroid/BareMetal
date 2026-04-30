@@ -1,0 +1,10 @@
+### Folder Tree  
++ temperature "온도"  
++ voltage     "전압"  
++ current     "전류"  
++ pressure    "압력"  
++ light       "빛(조도)"  
++ distance    "거리"  
++ imu         "관성 측정 장치 (가속도/자이로 등)"  
++ humidity    "습도"  
++ gas         "가스"  
